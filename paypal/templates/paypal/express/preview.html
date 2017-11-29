@@ -31,8 +31,18 @@
         {% csrf_token %}
         <input type="hidden" name="payer_id" value="{{ payer_id }}" />
         <input type="hidden" name="token" value="{{ token }}" />
-        <div class="form-actions">
-            <input id='place-order' type="submit" value="{% trans "Place order" %}" class="pull-right btn btn-primary btn-large js-disable-on-click" />
+        <div class="form-group clearfix">
+            <div class="row">
+                <div class="col-sm-3 col-sm-offset-9">
+                    <button
+                            id='place-order'
+                            type="submit"
+                            value="{% trans "Place order" %}"
+                            class="btn btn-primary btn-lg btn-block js-disable-on-click"
+                            data-loading-text="{% trans 'Submitting...' %}"
+                    >{% trans "Place order" %}</button>
+                </div>
+            </div>
         </div>
     </form>
 {% endblock place_order %}
